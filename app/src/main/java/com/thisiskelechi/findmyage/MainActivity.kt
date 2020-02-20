@@ -15,6 +15,12 @@ class MainActivity : AppCompatActivity() {
 
      fun displayAge(view: View) {
         val age = dob.text.toString().toInt()
+
+         if (age <= 0 || age.toString().length <= 3) {
+             age_result.text = "Invalid Input"
+             return
+         }
+
         var calculatedAge = Calendar.getInstance().get(Calendar.YEAR) - age
         val result = "You are $calculatedAge years old."
          age_result.setText(result)
